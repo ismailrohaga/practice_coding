@@ -73,6 +73,7 @@ void main() {
 
   // const is used for a variable that is compile-time constant.
   // basically, const behave like final but with extra spice to it
+  // ignore: todo
   // TODO: learn more about final and const
 
   array() => [1, 2];
