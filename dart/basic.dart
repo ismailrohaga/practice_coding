@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 void main() {
   // greetings is inferred as String by Dart
   var greetings = "Hello, world!";
