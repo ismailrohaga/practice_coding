@@ -9,15 +9,26 @@ import "testing"
 func TestHello(t *testing.T) {
 	// it's possible to have multiple tests, AKA subtest inside one function
 	t.Run("without args", func(t *testing.T) {
-		got := Hello("")
+		got := Hello("", "")
 		want := "Hello There!"
 		assertString(t, got, want)
 	})
 	t.Run("with args", func(t *testing.T) {
-		got := Hello("Bro")
+		got := Hello("Bro", "")
 		want := "Hello There! Bro!"
 		assertString(t, got, want)
 	})
+	t.Run("with lang", func(t *testing.T) {
+		got := Hello("Bro", "Bahasa")
+		want := "Hai Kamu! Bro!"
+		assertString(t, got, want)
+	})
+}
+
+func subTest(name, got, want string) {
+  t.Run(name, func(t *testing.T) {
+	assertString(t, got, want)
+  }
 }
 
 // doesn't care about the order of function calls
