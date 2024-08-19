@@ -7,18 +7,30 @@ import "testing"
 // takes only one args
 
 func TestHello(t *testing.T) {
-	got := Hello("")
-	want := "Hello There!"
+	// it's possible to have multiple tests, AKA subtest inside one function
+	t.Run("without args", func(t *testing.T) {
+		got := Hello("")
+		want := "Hello There!"
+		assertString(t, got, want)
+	})
+	t.Run("with args", func(t *testing.T) {
+		got := Hello("Bro")
+		want := "Hello There! Bro!"
+		assertString(t, got, want)
+	})
+}
 
+// doesn't care about the order of function calls
+// var type can be defined for two var
+func assertString(t *testing.T, got, want string) {
+	t.Helper()
 	if got != want {
 		t.Errorf("Got %q want %q", got, want)
 	}
 }
 
-func TestHelloArgs(t *testing.T) {
-	got := Hello("Bro")
-	want := "Hello There! Bro!"
-
+func assertNumber(t *testing.T, got int, want int) {
+	t.Helper() // a flag to indicate that the function is a helper function
 	if got != want {
 		t.Errorf("Got %q want %q", got, want)
 	}
@@ -29,8 +41,5 @@ func TestCalculate(t *testing.T) {
 	b := 2
 	got := Calculate(a, b)
 	want := a + b
-
-	if got != want {
-		t.Errorf("Got %d want %d", got, want)
-	}
+	assertNumber(t, got, want)
 }

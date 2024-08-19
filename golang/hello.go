@@ -3,6 +3,8 @@ package main
 // this includes Println functions
 import "fmt"
 
+const HELLO = "Hello There!"
+
 func main() {
 	v := "Bro"
 	fmt.Println(Hello(v))
@@ -13,9 +15,10 @@ func main() {
 func Hello(name string) string {
 	// doesn't need ; at the end
 	if name == "" {
-		return "Hello There!"
+		return HELLO
 	} else {
-		return "Hello There! " + name + "!"
+		// TODO: use proper string builder?
+		return HELLO + " " + name + "!"
 	}
 }
 
