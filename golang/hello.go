@@ -18,26 +18,27 @@ func main() {
 // function return type is defined after the function name
 // can we have some kind of nullable type?
 // TODO: refactor this function
-// [ ] only responsible for returning the string
-// [ ] take out the language switcher
+// [x] only responsible for returning the string
+// [x] take out the language switcher
 func Hello(name string, lang string) string {
 	// doesn't need ; at the end
-	var prefix string
-
-	switch lang {
-	case EN:
-		prefix = HELLO_EN
-	case ID:
-		prefix = HELLO_ID
-	default:
-		prefix = HELLO_EN
-	}
+	var prefix string = getGreetingPrefix(lang)
 
 	if name == "" {
 		return prefix
-	} else {
-		// TODO: use proper string builder?
-		return prefix + " " + name + "!"
+	}
+
+	return fmt.Sprintf("%s %s!", prefix, name)
+}
+
+func getGreetingPrefix(lang string) string {
+	switch lang {
+	case EN:
+		return HELLO_EN
+	case ID:
+		return HELLO_ID
+	default:
+		return HELLO_EN
 	}
 }
 

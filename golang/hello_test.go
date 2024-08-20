@@ -23,13 +23,14 @@ func TestHello(t *testing.T) {
 		want := "Hai Kamu! Bro!"
 		assertString(t, got, want)
 	})
+	subTest(t, "with lange EN", Hello("Bro", "English"), "Hello There! Bro!")
 }
 
-//TODO: fix this
-func subTest(name, got, want string) {
-  t.Run(name, func(t *testing.T) {
-	assertString(t, got, want)
-  }
+// some kind of wrapper function of t.Run, kinda useless tho
+func subTest(t *testing.T, name, got, want string) {
+	t.Run(name, func(t *testing.T) {
+		assertString(t, got, want)
+	})
 }
 
 // doesn't care about the order of function calls
