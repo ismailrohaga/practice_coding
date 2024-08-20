@@ -41,18 +41,3 @@ func assertString(t *testing.T, got, want string) {
 		t.Errorf("Got %q want %q", got, want)
 	}
 }
-
-func assertNumber(t *testing.T, got int, want int) {
-	t.Helper() // a flag to indicate that the function is a helper function
-	if got != want {
-		t.Errorf("Got %q want %q", got, want)
-	}
-}
-
-func TestCalculate(t *testing.T) {
-	a := 1
-	b := 2
-	got := Calculate(a, b)
-	want := a + b
-	assertNumber(t, got, want)
-}

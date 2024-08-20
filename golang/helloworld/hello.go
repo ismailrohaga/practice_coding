@@ -41,7 +41,3 @@ func getGreetingPrefix(lang string) string {
 		return HELLO_EN
 	}
 }
-
-func Calculate(a, b int) int {
-	return a + b
-}
