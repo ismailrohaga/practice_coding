@@ -2,6 +2,7 @@ package iteration
 
 import (
 	"fmt"
+	"strings"
 	"testing"
 )
 
@@ -11,6 +12,10 @@ func TestRepeat(t *testing.T) {
 
 	if got != want {
 		t.Errorf("Repeat() = %v, want %v", got, want)
+	}
+
+	if strings.Count(got, "s") != 4 {
+		t.Errorf("Repeat() should repeat the string 4 times")
 	}
 }
 
